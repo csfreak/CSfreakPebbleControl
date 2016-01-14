@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2F54FB001C449168005AF0DB"
-               BuildableName = "CSfreakPebbleControlTests.xctest"
+               BuildableName = "CSfreakPebbleControl.xctest"
                BlueprintName = "CSfreakPebbleControlTests"
                ReferencedContainer = "container:CSfreakPebbleControl.xcodeproj">
             </BuildableReference>
@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2F54FB001C449168005AF0DB"
-               BuildableName = "CSfreakPebbleControlTests.xctest"
+               BuildableName = "CSfreakPebbleControl.xctest"
                BlueprintName = "CSfreakPebbleControlTests"
                ReferencedContainer = "container:CSfreakPebbleControl.xcodeproj">
             </BuildableReference>

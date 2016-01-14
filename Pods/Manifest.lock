@@ -1,10 +1,35 @@
 PODS:
+  - AmbientStatus (0.1.0):
+    - AmbientStatus/BatteryMonitor (= 0.1.0)
+    - AmbientStatus/LocationMonitor (= 0.1.0)
+    - AmbientStatus/TransitMonitor (= 0.1.0)
+  - AmbientStatus/BatteryMonitor (0.1.0):
+    - ASBatteryMonitor
+  - AmbientStatus/LocationMonitor (0.1.0):
+    - ASLocationMonitor
+  - AmbientStatus/TransitMonitor (0.1.0):
+    - ASTransitMonitor
+  - ASBatteryMonitor (0.1.0)
+  - ASLocationMonitor (0.1.0)
+  - ASTransitMonitor (0.1.0):
+    - ASLocationMonitor
+  - CZWeatherKit (2.2.5):
+    - PINCache (~> 2.1)
   - PebbleKit (3.1.1)
+  - PINCache (2.1.2)
 
 DEPENDENCIES:
+  - AmbientStatus (~> 0.1.0)
+  - CZWeatherKit
   - PebbleKit
 
 SPEC CHECKSUMS:
+  AmbientStatus: 0a1236e8e8cc6c1e2c899f6e1820d2741f03b58b
+  ASBatteryMonitor: a3990eceaa9f9625d3af29ed9aafb1bf4db882a6
+  ASLocationMonitor: 452524065d0130f6137aaca4b3e76367c97360b8
+  ASTransitMonitor: bd4a9a0481beeb6af5a21dbfe9af97024961348b
+  CZWeatherKit: a45e15f47bf1c18cc2c809655a35e50c4f3f1b9f
   PebbleKit: 390181163256815738e467f183e7c65e16b56d25
+  PINCache: 9e70271f1bdd60c0465b7208adcc4b6acc1fc376
 
 COCOAPODS: 0.39.0

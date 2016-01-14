@@ -33,7 +33,7 @@
         NSLog(@"Pebble firmware major version: %li", (long)versionInfo.runningFirmwareMetadata.version.major);
         NSLog(@"Pebble firmware minor version: %li", (long)versionInfo.runningFirmwareMetadata.version.minor);
         NSLog(@"Pebble firmware suffix version: %@", versionInfo.runningFirmwareMetadata.version.suffix);
-        self.outputLabel.text = @"Pebble Connected";
+        self.outputLabel.text = [NSString stringWithFormat:@"Pebble Connected %@", [watch name]];
     }
                      onTimeout:^(PBWatch *watch) {
                          NSLog(@"Timed out trying to get version info from Pebble.");
@@ -67,9 +67,8 @@
      self.outputLabel.text = @"Loading....";
     // Check AppMessage is supported by this watch
     NSError* error = nil;
-    self.StockLabel.text = @"VSAT: %@",[NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://download.finance.yahoo.com/d/quotes.csv?s=VSAT&f=l1&e=.csv"] encoding:NSASCIIStringEncoding error:&error];
-    NSLog(@"%@",error);
-
+    self.StockLabel.text = [NSString stringWithFormat:@"VSAT Stock Value: %@",[NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://download.finance.yahoo.com/d/quotes.csv?s=VSAT&f=l1&e=.csv"] encoding:NSASCIIStringEncoding error:&error]];
+    if (error) {NSLog(@"Error fetching stock value: %@", error);}
     }
 
 - (void)didReceiveMemoryWarning {
