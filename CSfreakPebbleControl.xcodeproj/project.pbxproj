@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 47;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F54FAEE1C449167005AF0DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F54FAED1C449167005AF0DB /* main.m */; };
+		2F54FAF11C449167005AF0DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F54FAF01C449167005AF0DB /* AppDelegate.m */; };
+		2F54FAF41C449167005AF0DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F54FAF31C449167005AF0DB /* ViewController.m */; };
+		2F54FAF71C449167005AF0DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F54FAF51C449167005AF0DB /* Main.storyboard */; };
+		2F54FAF91C449168005AF0DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F54FAF81C449168005AF0DB /* Images.xcassets */; };
+		2F54FAFC1C449168005AF0DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F54FAFA1C449168005AF0DB /* LaunchScreen.xib */; };
+		EBC26960C1559C064D9890AE /* libPods-CSfreakPebbleControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C85FC1F1A973B7F3FB7A641 /* libPods-CSfreakPebbleControl.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F54FB021C449168005AF0DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F54FAE01C449167005AF0DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F54FAE71C449167005AF0DB;
+			remoteInfo = "CSfreakPebbleControl";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F54FAE81C449167005AF0DB /* CSfreakPebbleControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSfreakPebbleControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F54FAEC1C449167005AF0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F54FAED1C449167005AF0DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F54FAEF1C449167005AF0DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2F54FAF01C449167005AF0DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2F54FAF21C449167005AF0DB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2F54FAF31C449167005AF0DB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2F54FAF61C449167005AF0DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2F54FAF81C449168005AF0DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2F54FAFB1C449168005AF0DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2F54FB011C449168005AF0DB /* CSfreakPebbleControl.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSfreakPebbleControl.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90BED6A6EF1C9F89EAC141F6 /* Pods-CSfreakPebbleControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSfreakPebbleControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSfreakPebbleControl/Pods-CSfreakPebbleControl.release.xcconfig"; sourceTree = "<group>"; };
+		9C85FC1F1A973B7F3FB7A641 /* libPods-CSfreakPebbleControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CSfreakPebbleControl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F57CF30B2B68106F9AE095CB /* Pods-CSfreakPebbleControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSfreakPebbleControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSfreakPebbleControl/Pods-CSfreakPebbleControl.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F54FAE51C449167005AF0DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBC26960C1559C064D9890AE /* libPods-CSfreakPebbleControl.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F54FAFE1C449168005AF0DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1ABBF6C2E0F676BA7722A99F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C85FC1F1A973B7F3FB7A641 /* libPods-CSfreakPebbleControl.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F54FADF1C449167005AF0DB = {
+			isa = PBXGroup;
+			children = (
+				2F54FAEA1C449167005AF0DB /* CSfreakPebbleControl */,
+				2F54FAE91C449167005AF0DB /* Products */,
+				30FCF50CE0A1AD0074618E32 /* Pods */,
+				1ABBF6C2E0F676BA7722A99F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2F54FAE91C449167005AF0DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F54FAE81C449167005AF0DB /* CSfreakPebbleControl.app */,
+				2F54FB011C449168005AF0DB /* CSfreakPebbleControl.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F54FAEA1C449167005AF0DB /* CSfreakPebbleControl */ = {
+			isa = PBXGroup;
+			children = (
+				2F54FAEF1C449167005AF0DB /* AppDelegate.h */,
+				2F54FAF01C449167005AF0DB /* AppDelegate.m */,
+				2F54FAF21C449167005AF0DB /* ViewController.h */,
+				2F54FAF31C449167005AF0DB /* ViewController.m */,
+				2F54FAF51C449167005AF0DB /* Main.storyboard */,
+				2F54FAF81C449168005AF0DB /* Images.xcassets */,
+				2F54FAFA1C449168005AF0DB /* LaunchScreen.xib */,
+				2F54FAEB1C449167005AF0DB /* Supporting Files */,
+			);
+			name = CSfreakPebbleControl;
+			path = "CSfreakPebbleControl";
+			sourceTree = "<group>";
+		};
+		2F54FAEB1C449167005AF0DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F54FAEC1C449167005AF0DB /* Info.plist */,
+				2F54FAED1C449167005AF0DB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30FCF50CE0A1AD0074618E32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F57CF30B2B68106F9AE095CB /* Pods-CSfreakPebbleControl.debug.xcconfig */,
+				90BED6A6EF1C9F89EAC141F6 /* Pods-CSfreakPebbleControl.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F54FAE71C449167005AF0DB /* CSfreakPebbleControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F54FB0B1C449168005AF0DB /* Build configuration list for PBXNativeTarget "CSfreakPebbleControl" */;
+			buildPhases = (
+				0A61D633C2A0E76F2A557E5F /* Check Pods Manifest.lock */,
+				2F54FAE41C449167005AF0DB /* Sources */,
+				2F54FAE51C449167005AF0DB /* Frameworks */,
+				2F54FAE61C449167005AF0DB /* Resources */,
+				B7B9CFF90F2A8CAF1151DD64 /* Embed Pods Frameworks */,
+				C4CD30C11A0AB5A2AF48088F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSfreakPebbleControl;
+			productName = "CSfreakPebbleControl";
+			productReference = 2F54FAE81C449167005AF0DB /* CSfreakPebbleControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F54FB001C449168005AF0DB /* CSfreakPebbleControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F54FB0E1C449168005AF0DB /* Build configuration list for PBXNativeTarget "CSfreakPebbleControlTests" */;
+			buildPhases = (
+				2F54FAFD1C449168005AF0DB /* Sources */,
+				2F54FAFE1C449168005AF0DB /* Frameworks */,
+				2F54FAFF1C449168005AF0DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F54FB031C449168005AF0DB /* PBXTargetDependency */,
+			);
+			name = CSfreakPebbleControlTests;
+			productName = "CSfreakPebbleControlTests";
+			productReference = 2F54FB011C449168005AF0DB /* CSfreakPebbleControl.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F54FAE01C449167005AF0DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Ross, Jason";
+				TargetAttributes = {
+					2F54FAE71C449167005AF0DB = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = A2N9TSV33T;
+					};
+					2F54FB001C449168005AF0DB = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 2F54FAE71C449167005AF0DB;
+					};
+				};
+			};
+			buildConfigurationList = 2F54FAE31C449167005AF0DB /* Build configuration list for PBXProject "CSfreakPebbleControl" */;
+			compatibilityVersion = "Xcode 6.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F54FADF1C449167005AF0DB;
+			productRefGroup = 2F54FAE91C449167005AF0DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F54FAE71C449167005AF0DB /* CSfreakPebbleControl */,
+				2F54FB001C449168005AF0DB /* CSfreakPebbleControlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F54FAE61C449167005AF0DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F54FAF71C449167005AF0DB /* Main.storyboard in Resources */,
+				2F54FAFC1C449168005AF0DB /* LaunchScreen.xib in Resources */,
+				2F54FAF91C449168005AF0DB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F54FAFF1C449168005AF0DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A61D633C2A0E76F2A557E5F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B7B9CFF90F2A8CAF1151DD64 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSfreakPebbleControl/Pods-CSfreakPebbleControl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4CD30C11A0AB5A2AF48088F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSfreakPebbleControl/Pods-CSfreakPebbleControl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F54FAE41C449167005AF0DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F54FAF41C449167005AF0DB /* ViewController.m in Sources */,
+				2F54FAF11C449167005AF0DB /* AppDelegate.m in Sources */,
+				2F54FAEE1C449167005AF0DB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F54FAFD1C449168005AF0DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F54FB031C449168005AF0DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F54FAE71C449167005AF0DB /* CSfreakPebbleControl */;
+			targetProxy = 2F54FB021C449168005AF0DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F54FAF51C449167005AF0DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F54FAF61C449167005AF0DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2F54FAFA1C449168005AF0DB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F54FAFB1C449168005AF0DB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F54FB091C449168005AF0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2F54FB0A1C449168005AF0DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F54FB0C1C449168005AF0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F57CF30B2B68106F9AE095CB /* Pods-CSfreakPebbleControl.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "CSfreakPebbleControl/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.csfreak.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = CSfreakPebbleControl;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		2F54FB0D1C449168005AF0DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90BED6A6EF1C9F89EAC141F6 /* Pods-CSfreakPebbleControl.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "CSfreakPebbleControl/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.csfreak.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = CSfreakPebbleControl;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		2F54FB0F1C449168005AF0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CSfreakPebbleControlTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.csfreak.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = CSfreakPebbleControl;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CSfreakPebbleControl.app/CSfreakPebbleControl";
+			};
+			name = Debug;
+		};
+		2F54FB101C449168005AF0DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CSfreakPebbleControlTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.csfreak.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = CSfreakPebbleControl;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CSfreakPebbleControl.app/CSfreakPebbleControl";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F54FAE31C449167005AF0DB /* Build configuration list for PBXProject "CSfreakPebbleControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F54FB091C449168005AF0DB /* Debug */,
+				2F54FB0A1C449168005AF0DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F54FB0B1C449168005AF0DB /* Build configuration list for PBXNativeTarget "CSfreakPebbleControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F54FB0C1C449168005AF0DB /* Debug */,
+				2F54FB0D1C449168005AF0DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F54FB0E1C449168005AF0DB /* Build configuration list for PBXNativeTarget "CSfreakPebbleControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F54FB0F1C449168005AF0DB /* Debug */,
+				2F54FB101C449168005AF0DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F54FAE01C449167005AF0DB /* Project object */;
+}
