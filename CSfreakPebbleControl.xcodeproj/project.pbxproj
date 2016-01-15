@@ -22,7 +22,7 @@
 			containerPortal = 2F54FAE01C449167005AF0DB /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2F54FAE71C449167005AF0DB;
-			remoteInfo = "CSfreakPebbleControl";
+			remoteInfo = CSfreakPebbleControl;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -101,8 +101,7 @@
 				2F54FAFA1C449168005AF0DB /* LaunchScreen.xib */,
 				2F54FAEB1C449167005AF0DB /* Supporting Files */,
 			);
-			name = CSfreakPebbleControl;
-			path = "CSfreakPebbleControl";
+			path = CSfreakPebbleControl;
 			sourceTree = "<group>";
 		};
 		2F54FAEB1C449167005AF0DB /* Supporting Files */ = {
@@ -142,7 +141,7 @@
 			dependencies = (
 			);
 			name = CSfreakPebbleControl;
-			productName = "CSfreakPebbleControl";
+			productName = CSfreakPebbleControl;
 			productReference = 2F54FAE81C449167005AF0DB /* CSfreakPebbleControl.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -160,7 +159,7 @@
 				2F54FB031C449168005AF0DB /* PBXTargetDependency */,
 			);
 			name = CSfreakPebbleControlTests;
-			productName = "CSfreakPebbleControlTests";
+			productName = CSfreakPebbleControlTests;
 			productReference = 2F54FB011C449168005AF0DB /* CSfreakPebbleControl.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -407,7 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "CSfreakPebbleControl/Info.plist";
+				INFOPLIST_FILE = CSfreakPebbleControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csfreak.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CSfreakPebbleControl;
@@ -422,7 +421,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "CSfreakPebbleControl/Info.plist";
+				INFOPLIST_FILE = CSfreakPebbleControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csfreak.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CSfreakPebbleControl;
@@ -442,7 +441,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "CSfreakPebbleControlTests/Info.plist";
+				INFOPLIST_FILE = CSfreakPebbleControlTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csfreak.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CSfreakPebbleControl;
@@ -458,7 +457,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "CSfreakPebbleControlTests/Info.plist";
+				INFOPLIST_FILE = CSfreakPebbleControlTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csfreak.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = CSfreakPebbleControl;
