@@ -79,12 +79,16 @@ id appMessageHandle;
                      }];
 
     appMessageHandle = [self.watch appMessagesAddReceiveUpdateHandler:^BOOL(PBWatch *watch, NSDictionary *update) {
-        NSLog(@"Received message: %@", update);
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            [self processPebbleDictionary:update];
-        });
+        NSLog(@"Received message");
+        if (update) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                [self processPebbleDictionary:update];
+            });
 
-        return YES;
+            return YES;
+        } else {
+            return NO;
+        }
     }];
 }
 
@@ -93,8 +97,28 @@ id appMessageHandle;
 }
 
 - (void)processPebbleDictionary:(NSDictionary *)update  {
-    
+    if([update objectForKey:CS_UPDATE_BATTERY_KEY]) {
+        [self updateBattery];
+    }
+    if([update objectForKey:CS_UPDATE_WEATHER_KEY]) {
+        [self updateWeather];
+    }
+    if([update objectForKey:CS_UPDATE_STOCK_KEY]) {
+        [self updateStock];
+    }
+
 }
+
+- (void)sendUpdate:(NSDictionary *)update {
+    [self.watch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+        if(!error) {
+            NSLog(@"Pushed update.");
+        } else {
+            NSLog(@"Error pushing update: %@", error);
+        }
+    }];
+}
+
 
 - (void)pebbleCentral:(PBPebbleCentral *)central watchDidConnect:(PBWatch *)watch isNew:(BOOL)isNew {
     if (self.watch) {
@@ -146,6 +170,10 @@ id appMessageHandle;
         NSLog(@"Error fetching stock value: %@", error);
     } else {
         self.stockValue = ret;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [self sendUpdate: @{CS_STOCK_TICKER_KEY: @"VSAT",CS_STOCK_VALUE_KEY:self.stockValue}];
+        });
+        
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"Main Thread Dispatch:  Set Stock Labels");
@@ -177,6 +205,9 @@ id appMessageHandle;
                 } else {
                     self.weather = data.current;
                     NSLog(@"Current Weather Data TempF:%f TempC: %f Condition: %@ Humidity: %f WindSpeed: %f WindDirection: %f", self.weather.temperature.f, self.weather.temperature.c, self.weather.summary, self.weather.humidity, self.weather.windSpeed.mph, self.weather.windDirection);
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                        [self sendUpdate: @{CS_WEATHER_TEMP_F_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.temperature.f],CS_WEATHER_TEMP_C_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.temperature.c],CS_WEATHER_COND_KEY:self.weather.summary,CS_WEATHER_HUMID_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.humidity]}];
+                    });
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"Main Thread Dispatch:  Set Weather Labels");
                         self.WeatherTempLabel.text = [NSString stringWithFormat:@"Current Weather Temp: %2.1f%C",self.weather.temperature.f,0x2109 ];
@@ -192,6 +223,9 @@ id appMessageHandle;
     if (!self.batteryMonitor.percentage) {
         NSLog(@"Error battery level");
     } else {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [self sendUpdate: @{CS_BATTERY_LEVEL_KEY: [NSNumber numberWithFloat:self.batteryMonitor.percentage*100]}];
+        });
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Main Thread Dispatch:  Set Battery Level Label");
             self.BatteryLevelLabel.text = [NSString stringWithFormat:@"Phone Battery Level: %.f%%",self.batteryMonitor.percentage * 100];
@@ -201,27 +235,35 @@ id appMessageHandle;
     if (!self.batteryMonitor.state) {
         NSLog(@"Error battery state");
     } else {
-        NSString* state;
+        NSString* log_state;
+        NSNumber* state;
         switch (self.batteryMonitor.state) {
             case UIDeviceBatteryStateFull:
-                state = @"Full";
+                log_state = @"Full";
+                state=[NSNumber numberWithInt:3];
                 break;
                 
             case UIDeviceBatteryStateCharging:
-                state = @"Charging";
+                log_state = @"Charging";
+                state=[NSNumber numberWithInt:2];
                 break;
                 
             case UIDeviceBatteryStateUnplugged:
-                state = @"Unplugged";
+                log_state = @"Unplugged";
+                state=[NSNumber numberWithInt:1];
                 break;
                 
             default:
-                state = @"Unknown";
+                log_state = @"Unknown";
+                state=[NSNumber numberWithInt:0];
                 break;
         }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [self sendUpdate: @{CS_BATTERY_STATUS_KEY: state}];
+        });
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Main Thread Dispatch:  Set Battery Cond Label");
-            self.BatteryCondLabel.text = [NSString stringWithFormat:@"Phone Battery Level: %@",state];
+            self.BatteryCondLabel.text = [NSString stringWithFormat:@"Phone Battery Level: %@",log_state];
         });
     }
     
