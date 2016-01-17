@@ -16,36 +16,52 @@
 
 #import "ASBatteryMonitor/ASBatteryMonitor.h"
 
+#define CS_BATTERY_LEVEL_KEY @(0xFFFF)
+#define CS_BATTERY_STATUS_KEY @(0xFFFE)
+#define CS_STOCK_TICKER_KEY @(0xFFEF)
+#define CS_STOCK_VALUE_KEY @(0xFFEF)
+#define CS_WEATHER_TEMP_F_KEY @(0xFFDF)
+#define CS_WEATHER_TEMP_C_KEY @(0xFFDE)
+#define CS_WEATHER_COND_KEY @(0xFFDD)
+#define CS_WEATHER_HUMID_KEY @(0xFFDC)
+#define CS_WEATHER_WIND_SPEED_KEY @(0xFFDB)
+#define CS_WEATHER_WIND_DIR_KEY @(0xFFDA)
+
+#define CS_UPDATE_BATTERY_KEY @(0x0FFF)
+#define CS_UPDATE_STOCK_KEY @(0x0FFE)
+#define CS_UPDATE_WEATHER_KEY @(0x0FFD)
+
+
 
 @interface ViewController () <PBPebbleCentralDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 @property (weak, nonatomic) IBOutlet UILabel *StockLabel;
 @property (weak, nonatomic) IBOutlet UILabel *WeatherTempLabel;
 @property (weak, nonatomic) IBOutlet UILabel *WeatherCondLabel;
-@property (weak, nonatomic) IBOutlet UILabel *BatteryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *BatteryLevelLabel;
+@property (weak, nonatomic) IBOutlet UILabel *BatteryCondLabel;
 
 @property (weak, nonatomic) PBWatch *watch;
 @property (weak, nonatomic) PBPebbleCentral *central;
 
 @property (nonatomic) CZOpenWeatherMapRequest *OWrequest;
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *location;
-@property (weak, nonatomic) CZWeatherCurrentCondition *weather;
+@property (strong) CLLocationManager *locationManager;
+@property (strong) CLLocation *location;
+@property (strong) CZWeatherCurrentCondition *weather;
 @property (strong) NSString *stockValue;
 
-@property (weak, nonatomic) ASBatteryMonitor *batteryMonitor;
+@property (weak) ASBatteryMonitor *batteryMonitor;
+
+
 
 @end
 
 @implementation ViewController
 CLLocationDistance TenMiles = 16000;
+id appMessageHandle;
+- (void)initPebble {
+    
 
-- (void)pebbleCentral:(PBPebbleCentral *)central watchDidConnect:(PBWatch *)watch isNew:(BOOL)isNew {
-    if (self.watch) {
-        return;
-    }
-    self.watch = watch;
-    NSLog(@"Pebble connected: %@", [watch name]);
     
     [self.watch getVersionInfo:^(PBWatch *watch, PBVersionInfo *versionInfo ) {
         NSLog(@"Pebble firmware os version: %li", (long)versionInfo.runningFirmwareMetadata.version.os);
@@ -53,14 +69,40 @@ CLLocationDistance TenMiles = 16000;
         NSLog(@"Pebble firmware minor version: %li", (long)versionInfo.runningFirmwareMetadata.version.minor);
         NSLog(@"Pebble firmware suffix version: %@", versionInfo.runningFirmwareMetadata.version.suffix);
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Main Thread Dispatch:  Set Pebble Label");
             self.outputLabel.text = [NSString stringWithFormat:@"Connected to %@", [watch name]];
         });
-
+        
     }
                      onTimeout:^(PBWatch *watch) {
                          NSLog(@"Timed out trying to get version info from Pebble.");
                      }];
 
+    appMessageHandle = [self.watch appMessagesAddReceiveUpdateHandler:^BOOL(PBWatch *watch, NSDictionary *update) {
+        NSLog(@"Received message: %@", update);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [self processPebbleDictionary:update];
+        });
+
+        return YES;
+    }];
+}
+
+- (void)deinitPebble {
+    [self.watch appMessagesAddReceiveUpdateHandler:appMessageHandle];
+}
+
+- (void)processPebbleDictionary:(NSDictionary *)update  {
+    
+}
+
+- (void)pebbleCentral:(PBPebbleCentral *)central watchDidConnect:(PBWatch *)watch isNew:(BOOL)isNew {
+    if (self.watch) {
+        return;
+    }
+    self.watch = watch;
+    NSLog(@"Pebble connected: %@", [watch name]);
+    [self initPebble];
 }
 
 - (void)pebbleCentral:(PBPebbleCentral *)central watchDidDisconnect:(PBWatch *)watch {
@@ -69,8 +111,10 @@ CLLocationDistance TenMiles = 16000;
         self.watch = nil;
         NSLog(@"Pebble disconnected: %@", [watch name]);
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Main Thread Dispatch:  Set Pebble Label");
             self.outputLabel.text = [NSString stringWithFormat:@"Pebble Not Connected"];
         });
+        [self deinitPebble];
     }
 }
 
@@ -90,6 +134,10 @@ CLLocationDistance TenMiles = 16000;
     NSLog(@"Recieved Battery Level: %f",level);
     [self updateBattery];
 }
+- (void)batteryMonitor:(ASBatteryMonitor *)batteryMonitor didChangeBatteryState:(UIDeviceBatteryState)state {
+    NSLog(@"Recieved Battery State: %i",(int)state);
+    [self updateBattery];
+}
 
 - (void)updateStock {
     NSError* error = nil;
@@ -100,6 +148,7 @@ CLLocationDistance TenMiles = 16000;
         self.stockValue = ret;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"Main Thread Dispatch:  Set Stock Labels");
         self.StockLabel.text = [NSString stringWithFormat:@"VSAT Stock Value: %@",self.stockValue];
     });
 }
@@ -129,6 +178,7 @@ CLLocationDistance TenMiles = 16000;
                     self.weather = data.current;
                     NSLog(@"Current Weather Data TempF:%f TempC: %f Condition: %@ Humidity: %f WindSpeed: %f WindDirection: %f", self.weather.temperature.f, self.weather.temperature.c, self.weather.summary, self.weather.humidity, self.weather.windSpeed.mph, self.weather.windDirection);
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"Main Thread Dispatch:  Set Weather Labels");
                         self.WeatherTempLabel.text = [NSString stringWithFormat:@"Current Weather Temp: %2.1f%C",self.weather.temperature.f,0x2109 ];
                         self.WeatherCondLabel.text = [NSString stringWithFormat:@"Current Weather Condition: %@",self.weather.summary];
                     });
@@ -143,7 +193,35 @@ CLLocationDistance TenMiles = 16000;
         NSLog(@"Error battery level");
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.BatteryLabel.text = [NSString stringWithFormat:@"Phone Battery Level: %.f%%",self.batteryMonitor.percentage * 100];
+            NSLog(@"Main Thread Dispatch:  Set Battery Level Label");
+            self.BatteryLevelLabel.text = [NSString stringWithFormat:@"Phone Battery Level: %.f%%",self.batteryMonitor.percentage * 100];
+        });
+    }
+    
+    if (!self.batteryMonitor.state) {
+        NSLog(@"Error battery state");
+    } else {
+        NSString* state;
+        switch (self.batteryMonitor.state) {
+            case UIDeviceBatteryStateFull:
+                state = @"Full";
+                break;
+                
+            case UIDeviceBatteryStateCharging:
+                state = @"Charging";
+                break;
+                
+            case UIDeviceBatteryStateUnplugged:
+                state = @"Unplugged";
+                break;
+                
+            default:
+                state = @"Unknown";
+                break;
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Main Thread Dispatch:  Set Battery Cond Label");
+            self.BatteryCondLabel.text = [NSString stringWithFormat:@"Phone Battery Level: %@",state];
         });
     }
     
@@ -157,7 +235,8 @@ CLLocationDistance TenMiles = 16000;
     self.WeatherCondLabel.text = @"Current Weather Condition: Unknown";
     self.outputLabel.text = @"Pebble Not Connected";
     self.StockLabel.text = @"VSAT Stock Price: Unknown";
-    self.BatteryLabel.text = @"Phone Battery Level: Unknown";
+    self.BatteryLevelLabel.text = @"Phone Battery Level: Unknown";
+    self.BatteryCondLabel.text = @"Phone Battery State: Unknown";
     
     // Set the delegate to receive PebbleKit events
     self.central = [PBPebbleCentral defaultCentral];
@@ -166,10 +245,12 @@ CLLocationDistance TenMiles = 16000;
     // Register UUID
     self.central.appUUID = [[NSUUID alloc] initWithUUIDString:@"8883df8b-3b31-47d1-89f2-83f59c9f5e5f"];
     // Begin connection
-    [self.central run];
+    [self.central run]; 
     NSLog(@"Central Run");
     // Check AppMessage is supported by this watch;
-    
+    if (self.watch) {
+        [self initPebble];
+    }
     
 
     

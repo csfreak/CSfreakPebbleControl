@@ -1,0 +1,28 @@
+typedef enum {
+UIDeviceBatteryStateUnknown,
+UIDeviceBatteryStateUnplugged,
+UIDeviceBatteryStateCharging,
+UIDeviceBatteryStateFull,
+} UIDeviceBatteryState;
+
+
+- (void)setState:(UIDeviceBatteryState)state {
+_unknown = NO;
+switch (state) {
+case UIDeviceBatteryStateFull:
+_full = YES;
+break;
+
+case UIDeviceBatteryStateCharging:
+_charging = YES;
+break;
+
+case UIDeviceBatteryStateUnplugged:
+_unplugged = YES;
+break;
+
+default:
+_unknown = YES;
+break;
+}
+}

@@ -47,6 +47,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfu-wa-dmA">
+                                <rect key="frame" x="279" y="165" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -54,7 +60,9 @@
                             <constraint firstItem="zJo-Zb-yGH" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="AaS-fb-7hh"/>
                             <constraint firstItem="q7s-ay-fbd" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="58" id="P8U-ox-veR"/>
                             <constraint firstItem="Lsh-Tf-IhF" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Wkt-sH-JlZ"/>
+                            <constraint firstItem="Tfu-wa-dmA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="145" id="Ynp-Sh-J74"/>
                             <constraint firstItem="zJo-Zb-yGH" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="bbw-by-6Qi"/>
+                            <constraint firstItem="Tfu-wa-dmA" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="by5-LW-dM3"/>
                             <constraint firstItem="yyp-wW-i23" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="d29-vX-7Fa"/>
                             <constraint firstItem="Fpj-dc-38z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="29" id="mUD-La-gXe"/>
                             <constraint firstItem="Fpj-dc-38z" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="pNx-eJ-sKo"/>
@@ -63,7 +71,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="BatteryLabel" destination="yyp-wW-i23" id="8d1-8E-BzA"/>
+                        <outlet property="BatteryCondLabel" destination="Tfu-wa-dmA" id="u98-Xp-Fkb"/>
+                        <outlet property="BatteryLevelLabel" destination="yyp-wW-i23" id="LrK-FR-g0U"/>
                         <outlet property="StockLabel" destination="Fpj-dc-38z" id="xBN-Om-AXZ"/>
                         <outlet property="WeatherCondLabel" destination="Lsh-Tf-IhF" id="V7Z-xy-A72"/>
                         <outlet property="WeatherTempLabel" destination="q7s-ay-fbd" id="xJH-6K-5sV"/>

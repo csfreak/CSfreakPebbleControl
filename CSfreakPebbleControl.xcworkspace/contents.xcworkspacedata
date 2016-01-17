@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ScratchPad">
+   </FileRef>
+   <FileRef
       location = "group:/Users/jdross/PebbleDev/CSfreakPebbleControl/CSfreakPebbleControl.xcodeproj">
    </FileRef>
    <FileRef
