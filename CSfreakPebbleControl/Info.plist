@@ -28,12 +28,14 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Just Do It</string>
+	<string>We need to have location for weather data.</string>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>external-accessory</string>
-		<string>bluetooth-peripheral</string>
 		<string>bluetooth-central</string>
+		<string>bluetooth-peripheral</string>
+		<string>external-accessory</string>
+		<string>fetch</string>
+		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -50,8 +52,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>
