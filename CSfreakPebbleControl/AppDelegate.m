@@ -48,16 +48,17 @@
 @property (weak) ASBatteryMonitor *batteryMonitor;
 
 @property id appMessageHandle;
-@property (strong) ViewController* ViewController;
-
 
 @end
 
 @implementation AppDelegate
 CLLocationDistance TenMiles = 16000;
-@synthesize ViewController =  _ViewController;
+@synthesize window = _window;
+@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.viewController = _window.rootViewController;
+    
     // Set the delegate to receive PebbleKit events
     self.central = [PBPebbleCentral defaultCentral];
     NSLog(@"Central Created");
@@ -139,7 +140,7 @@ CLLocationDistance TenMiles = 16000;
         NSLog(@"Pebble firmware suffix version: %@", versionInfo.runningFirmwareMetadata.version.suffix);
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Main Thread Dispatch:  Set Pebble Label");
-            //[[ViewController outputLabel].text = [NSString stringWithFormat:@"Connected to %@", [watch name]];
+            [self.viewController updateOutputLabel: [NSString stringWithFormat:@"Connected to %@", [watch name]]];
         });
         
     }
@@ -264,7 +265,7 @@ CLLocationDistance TenMiles = 16000;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"Main Thread Dispatch:  Set Stock Labels");
-        [self.ViewController updateStockLabel: [NSString stringWithFormat:@"VSAT Stock Value: %@",self.stockValue]];
+        [self.viewController updateStockLabel: [NSString stringWithFormat:@"VSAT Stock Value: %@",self.stockValue]];
         //[self performSelectorOnMainThread:@selector(sendUpdate:) withObject:@{CS_STOCK_TICKER_KEY: @"VSAT",CS_STOCK_VALUE_KEY:self.stockValue} waitUntilDone:NO];
         [self sendUpdate: @{CS_STOCK_TICKER_KEY: @"VSAT",CS_STOCK_VALUE_KEY:self.stockValue}];
         
@@ -298,8 +299,8 @@ CLLocationDistance TenMiles = 16000;
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"Main Thread Dispatch:  Set Weather Labels");
-                        [self.ViewController updateWeatherTempLabel: [NSString stringWithFormat:@"Current Weather Temp: %2.1f%C",self.weather.temperature.f,0x2109 ]];
-                        [self.ViewController updateWeatherCondLabel: [NSString stringWithFormat:@"Current Weather Condition: %@",self.weather.summary]];
+                        [self.viewController updateWeatherTempLabel: [NSString stringWithFormat:@"Current Weather Temp: %2.1f%C",self.weather.temperature.f,0x2109 ]];
+                        [self.viewController updateWeatherCondLabel: [NSString stringWithFormat:@"Current Weather Condition: %@",self.weather.summary]];
                         //[self performSelectorOnMainThread:@selector(sendUpdate:) withObject:@{CS_WEATHER_TEMP_F_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.temperature.f],CS_WEATHER_TEMP_C_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.temperature.c],CS_WEATHER_COND_KEY:self.weather.summary,CS_WEATHER_HUMID_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.humidity]} waitUntilDone:NO];
                         [self sendUpdate: @{CS_WEATHER_TEMP_F_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.temperature.f],CS_WEATHER_TEMP_C_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.temperature.c],CS_WEATHER_COND_KEY:self.weather.summary,CS_WEATHER_HUMID_KEY: [NSString stringWithFormat:@"%1.0f",self.weather.humidity]}];
                     });
@@ -314,7 +315,7 @@ CLLocationDistance TenMiles = 16000;
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Main Thread Dispatch:  Set Battery Level Label");
-            [self.ViewController updateBatteryLevelLabel: [NSString stringWithFormat:@"Phone Battery Level: %.f%%",self.batteryMonitor.percentage * 100]];
+            [self.viewController updateBatteryLevelLabel: [NSString stringWithFormat:@"Phone Battery Level: %.f%%",self.batteryMonitor.percentage * 100]];
             //[self performSelectorOnMainThread:@selector(sendUpdate:) withObject:@{CS_BATTERY_LEVEL_KEY: [NSNumber numberWithFloat:self.batteryMonitor.percentage*100]} waitUntilDone:NO];
             [self sendUpdate: @{CS_BATTERY_LEVEL_KEY: [NSNumber numberWithInt32:self.batteryMonitor.percentage*10]}];
             NSLog(@"Sent Battery Level: %@", [NSNumber numberWithFloat:self.batteryMonitor.percentage*10]);
@@ -351,7 +352,7 @@ CLLocationDistance TenMiles = 16000;
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Main Thread Dispatch:  Set Battery Cond Label");
             [self sendUpdate: @{CS_BATTERY_STATUS_KEY: state}];
-            [self.ViewController updateBatteryCondLabel: [NSString stringWithFormat:@"Phone Battery Level: %@",log_state]];
+            [self.viewController updateBatteryCondLabel: [NSString stringWithFormat:@"Phone Battery Level: %@",log_state]];
         });
     }
     
